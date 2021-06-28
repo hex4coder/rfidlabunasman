@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "rfid-lab-unasman": {
+      "hosting": {
+        "rfidlabunasman": [
+          "rfid-lab-unasman"
+        ]
+      }
+    }
+  }
+}
