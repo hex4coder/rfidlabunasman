@@ -1,0 +1,116 @@
+$backgroundColor: #e9e9e9;
+$primaryColor: #33b5e6;
+$secondaryColor: #f2f2f2;
+$textColor: #777779;
+
+.container {
+  background: $backgroundColor;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .login-form {
+    position: relative;
+    width: 320px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 2.2rem 2.1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &.not-loading {
+      &::before {
+        content: "";
+        height: 5px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background: $primaryColor;
+      }
+    }
+
+    .title {
+      color: $primaryColor;
+    }
+
+    mat-icon {
+      color: $primaryColor;
+    }
+
+    button {
+      margin-top: 0.75rem;
+      padding: 0.7rem 0.5rem;
+      background-color: #33b5e6;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+      margin-bottom: 50px;
+    }
+
+    .login-form-footer {
+      height: 50px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: $secondaryColor;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // padding-top: 10px;
+
+      .footer-text {
+        color: $textColor;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// animations
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// loading widget
+.loading-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  .spinner {
+    height: 50px;
+    width: 50px;
+    border-top: 2px solid $primaryColor;
+    border-left: 2px solid $primaryColor;
+    border-radius: 50%;
+    display: inline-block;
+    animation: loading 0.825s linear infinite;
+  }
+
+  .loading-text {
+    font-size: 0.825rem;
+    color: $textColor;
+    letter-spacing: 0.6px;
+  }
+}

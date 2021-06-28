@@ -1,0 +1,33 @@
+<div class="container">
+  <form autocomplete="off" class="login-form" [formGroup]="form" [ngClass]="{'not-loading': !isLoading}">
+    <h3 class="title">Login dengan ID anda</h3>
+    <mat-form-field>
+      <mat-label>Email / Username</mat-label>
+      <input type="text" matInput formControlName="email" />
+      <mat-icon matSuffix>email_rounded</mat-icon>
+      <mat-error *ngIf="email.hasError('required')">Wajib diisi</mat-error>
+      <mat-error *ngIf="email.hasError('email') || email.hasError('minlength')"
+        >Email tidak valid</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password" />
+      <mat-icon matSuffix>lock_rounded</mat-icon>
+      <mat-error *ngIf="password.hasError('required')">Wajib diisi</mat-error>
+      <mat-error *ngIf="password.hasError('minlength')"
+        >Panjang password tidak valid</mat-error
+      >
+    </mat-form-field>
+    <button type="submit" (click)="submitForm()">Login</button>
+    <div class="login-form-footer">
+      <a href="#" class="footer-text">Belum punya akun ?</a>
+    </div>
+
+    <!-- loading container -->
+    <div class="loading-container" *ngIf="isLoading">
+      <div class="spinner"></div>
+      <p class="loading-text">Loading ...</p>
+    </div>
+  </form>
+</div>
