@@ -1,5 +1,9 @@
 <div class="container">
-  <mat-card class="example-card" (click)="openLink('dosen/')">
+  <mat-card
+    class="example-card"
+    (click)="openLink('dosen/')"
+    [style.animationDelay]="'0ms'"
+  >
     <mat-card-header>
       <div mat-card-avatar class="header-image">
         <mat-icon>groups_rounded</mat-icon>
@@ -9,7 +13,11 @@
     </mat-card-header>
   </mat-card>
 
-  <mat-card class="example-card" (click)="openLink('history/')">
+  <mat-card
+    class="example-card"
+    (click)="openLink('history/')"
+    [style.animationDelay]="'500ms'"
+  >
     <mat-card-header>
       <div mat-card-avatar class="header-image">
         <mat-icon>bar_chart_rounded</mat-icon>

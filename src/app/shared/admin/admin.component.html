@@ -12,7 +12,11 @@
 
     <!-- navigation links -->
     <ul class="nav">
-      <li *ngFor="let link of links" (click)="updateCurrentLink(link)">
+      <li
+        *ngFor="let link of links; let i = index"
+        (click)="updateCurrentLink(link)"
+        [style.animationDelay]="(i * 250).toString() + 'ms'"
+      >
         <a [routerLink]="[link.link]" routerLinkActive="active">
           <mat-icon>{{ link.icon }}</mat-icon>
           <span>{{ link.text }}</span>

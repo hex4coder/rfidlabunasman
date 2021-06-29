@@ -3,6 +3,17 @@ $primaryColor: #33b5e6;
 $secondaryColor: #f2f2f2;
 $textColor: #777779;
 
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
 .container {
   height: 100vh;
   width: 100%;
@@ -53,6 +64,9 @@ $textColor: #777779;
 
       li {
         list-style: none;
+        transform: translateX(-100px);
+        opacity: 0;
+        animation: slideInFromLeft 0.4s ease-in forwards;
 
         a {
           padding: 1rem;
@@ -84,6 +98,10 @@ $textColor: #777779;
     }
 
     .signoutBtn {
+      transform: translateX(-100px);
+      opacity: 0;
+      animation: slideInFromLeft 0.4s ease-in forwards;
+      animation-delay: 1s;
       margin-top: 3rem;
       color: #fff;
       background-color: $primaryColor;
