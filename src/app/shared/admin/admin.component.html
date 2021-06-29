@@ -1,1 +1,45 @@
-<p>admin works!</p>
+<div class="container">
+  <!-- sidebar -->
+  <aside class="sidebar">
+    <!-- image logo -->
+    <img src="assets/img/user.svg" alt="user-logo" class="profile" />
+    <!-- user name -->
+    <p class="user__name">{{ currentUser.nama }}</p>
+    <!-- user description -->
+    <p class="user__description">{{ currentUser.role }}</p>
+
+    <mat-divider></mat-divider>
+
+    <!-- navigation links -->
+    <ul class="nav">
+      <li *ngFor="let link of links" (click)="updateCurrentLink(link)">
+        <a [routerLink]="[link.link]" routerLinkActive="active">
+          <mat-icon>{{ link.icon }}</mat-icon>
+          <span>{{ link.text }}</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- sign out button -->
+    <button
+      mat-raised-button
+      color="accent"
+      class="signoutBtn"
+      (click)="authService.logout()"
+    >
+      <mat-icon>exit_to_app_rounded</mat-icon><span>Logout</span>
+    </button>
+  </aside>
+
+  <!-- divider -->
+  <div class="divider"></div>
+
+  <!-- main content -->
+  <main class="content">
+    <!-- router description -->
+    <h2 class="title">{{ currentLink.text }}</h2>
+    <p class="description">{{ currentLink.description }}</p>
+    <!-- router -->
+    <router-outlet></router-outlet>
+  </main>
+</div>

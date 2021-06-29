@@ -9,12 +9,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
+import { HistoryComponent } from './history/history.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DosenComponent } from './dosen/dosen.component';
 
 @NgModule({
-  declarations: [LoginComponent, AdminComponent],
+  declarations: [LoginComponent, AdminComponent, HistoryComponent, DashboardComponent, DosenComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,
@@ -28,6 +32,7 @@ import { AdminComponent } from './admin/admin.component';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatDividerModule,
   ],
   exports: [
     LoginComponent,
@@ -35,7 +40,11 @@ import { AdminComponent } from './admin/admin.component';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatDividerModule,
     AdminComponent,
+    HistoryComponent,
+    DashboardComponent,
+    DosenComponent,
   ],
 })
 export class SharedModule {}

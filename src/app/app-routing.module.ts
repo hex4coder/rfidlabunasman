@@ -7,6 +7,8 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    loadChildren: () =>
+      import('./shared/shared.module').then((m) => m.SharedModule),
   },
 
   {

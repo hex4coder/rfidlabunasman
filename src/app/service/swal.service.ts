@@ -13,7 +13,7 @@ import Swal, {
 export class SwalService {
   // custom property
   private customStyle: SweetAlertCustomClass = {
-    confirmButton: 'mat-raised-button mat-primary',
+    confirmButton: 'mat-raised-button mat-primary mr20',
     cancelButton: 'mat-raised-button mat-accent',
   };
   private customConfig: SweetAlertOptions = {
@@ -29,7 +29,7 @@ export class SwalService {
   };
   private swalCustom = Swal.mixin({
     customClass: {
-      confirmButton: 'mat-raised-button mat-primary',
+      confirmButton: 'mat-raised-button mat-primary mr20',
       cancelButton: 'mat-raised-button mat-accent',
     },
     buttonsStyling: false,

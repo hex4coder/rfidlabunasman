@@ -1,0 +1,130 @@
+$backgroundColor: #e9e9e9;
+$primaryColor: #33b5e6;
+$secondaryColor: #f2f2f2;
+$textColor: #777779;
+
+.container {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  background-color: $backgroundColor;
+
+  .sidebar {
+    height: 100%;
+    background: #fff;
+    flex-basis: 25%;
+    max-width: 250px;
+    box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    padding-top: 2rem;
+
+    // logo
+    .profile {
+      max-width: 7rem;
+    }
+
+    .user__name {
+      margin-top: 2rem;
+      color: $primaryColor;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .user__description {
+      color: rgba($textColor, 0.7);
+      font-size: 0.75rem;
+      font-weight: 400;
+      margin-top: -0.825rem;
+    }
+
+    mat-divider {
+      width: 100%;
+      height: 2px;
+      color: $backgroundColor;
+      margin-bottom: 2rem;
+    }
+
+    .nav {
+      width: 100%;
+
+      li {
+        list-style: none;
+
+        a {
+          padding: 1rem;
+          text-decoration: none;
+          display: block;
+          display: flex;
+          align-items: center;
+
+          &.active {
+            background: $secondaryColor;
+
+            mat-icon {
+              color: $primaryColor;
+            }
+          }
+
+          mat-icon {
+            margin-right: 1rem;
+            color: rgba($textColor, 0.8);
+          }
+
+          span {
+            color: $textColor;
+            font-size: 0.825rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .signoutBtn {
+      margin-top: 3rem;
+      color: #fff;
+      background-color: $primaryColor;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        margin-left: 0.256rem;
+      }
+    }
+  }
+
+  .divider {
+    height: 100%;
+    background: $primaryColor;
+    flex-basis: 0.5%;
+    max-width: 5px;
+    box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .content {
+    height: 100%;
+    background: $backgroundColor;
+    flex-basis: 74.5%;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    overflow: hidden auto;
+
+    .title {
+      color: $primaryColor;
+    }
+
+    .description {
+      margin-top: -0.45rem;
+      color: $textColor;
+    }
+
+    router-outlet {
+      margin-top: 1rem;
+    }
+  }
+}
