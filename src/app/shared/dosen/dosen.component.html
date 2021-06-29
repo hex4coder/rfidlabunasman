@@ -1,1 +1,82 @@
-<p>dosen works!</p>
+<div class="mat-elevation-z1">
+  <!-- button -->
+  <button
+    mat-raised-button
+    color="primary"
+    class="button-add"
+    (click)="openForAdd()"
+  >
+    <mat-icon>person_add_rounded</mat-icon> Tambah Dosen
+  </button>
+
+  <!-- table data source -->
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let i; let idx = index">{{ idx + 1 }}</td>
+    </ng-container>
+
+    <!-- nama Column -->
+    <ng-container matColumnDef="nama">
+      <th mat-header-cell *matHeaderCellDef>Nama Dosen</th>
+      <td mat-cell *matCellDef="let i">{{ i.nama }}</td>
+    </ng-container>
+
+    <!-- nidn Column -->
+    <ng-container matColumnDef="nidn">
+      <th mat-header-cell *matHeaderCellDef>NIDN</th>
+      <td mat-cell *matCellDef="let i">{{ i.nidn }}</td>
+    </ng-container>
+
+    <!-- alamat Column -->
+    <ng-container matColumnDef="alamat">
+      <th mat-header-cell *matHeaderCellDef>Alamat</th>
+      <td mat-cell *matCellDef="let i">{{ i.alamat }}</td>
+    </ng-container>
+
+    <!-- nomorhp Column -->
+    <ng-container matColumnDef="nomorhp">
+      <th mat-header-cell *matHeaderCellDef>Nomor HP</th>
+      <td mat-cell *matCellDef="let i">{{ i.nomorhp }}</td>
+    </ng-container>
+
+    <!-- kode Column -->
+    <ng-container matColumnDef="kode">
+      <th mat-header-cell *matHeaderCellDef>Kode Kartu</th>
+      <td mat-cell *matCellDef="let i">{{ i.kode }}</td>
+    </ng-container>
+
+    <!-- aksi Column -->
+    <ng-container matColumnDef="aksi">
+      <th mat-header-cell *matHeaderCellDef>Opsi / Aksi</th>
+      <td mat-cell *matCellDef="let i">
+        <button mat-icon-button color="primary" (click)="openForEdit(i)">
+          <mat-icon>edit_rounded</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="service.delete(i)">
+          <mat-icon>delete_rounded</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Row shown when there is no matching data that will be provided to the wrapper table. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td
+        class="mat-cell"
+        [attr.colspan]="displayedColumns.length"
+        class="no-data"
+      >
+        Belum ada data
+      </td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

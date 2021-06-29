@@ -1,0 +1,75 @@
+<form autocomplete="off" class="dialog-container" [formGroup]="form">
+  <h2 mat-dialog-title>Form Data Dosen</h2>
+  <mat-dialog-content class="mat-typography">
+    <!-- fields -->
+    <mat-form-field>
+      <input type="text" matInput formControlName="kode" />
+      <mat-label>Kode Kartu</mat-label>
+      <mat-icon matSuffix color="primary">credit_card_rounded</mat-icon>
+      <mat-error *ngIf="kode.hasError('required')">Wajib diisi</mat-error>
+      <mat-error
+        *ngIf="
+          kode.hasError('minlength') ||
+          kode.hasError('maxlength') ||
+          kode.hasError('pattern')
+        "
+        >Kode Kartu tidak valid</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput formControlName="nama" />
+      <mat-label>Nama Dosen</mat-label>
+      <mat-icon matSuffix color="primary">person_rounded</mat-icon>
+      <mat-error *ngIf="nama.hasError('required')">Wajib diisi</mat-error>
+      <mat-error *ngIf="nama.hasError('minlength')"
+        >Nama Dosen tidak valid</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput formControlName="nidn" />
+      <mat-label>NIDN</mat-label>
+      <mat-hint>Nomor Induk Dosen Nasional</mat-hint>
+      <mat-icon matSuffix color="primary">fingerprint</mat-icon>
+      <mat-error *ngIf="nidn.hasError('required')">Wajib diisi</mat-error>
+      <mat-error *ngIf="nidn.hasError('minlength')"
+        >Nomor Induk Dosen Nasional tidak valid</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput formControlName="alamat" />
+      <mat-label>Alamat Dosen</mat-label>
+      <mat-icon matSuffix color="primary">home_rounded</mat-icon>
+      <mat-error *ngIf="alamat.hasError('required')">Wajib diisi</mat-error>
+      <mat-error *ngIf="alamat.hasError('minlength')"
+        >Alamat Dosen tidak valid</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput formControlName="nomorhp" />
+      <mat-label>Nomor HP</mat-label>
+      <mat-icon matSuffix color="primary">phone_rounded</mat-icon>
+      <mat-error *ngIf="nomorhp.hasError('required')">Wajib diisi</mat-error>
+      <mat-error
+        *ngIf="
+          nomorhp.hasError('minlength') ||
+          nomorhp.hasError('maxlength') ||
+          nomorhp.hasError('pattern')
+        "
+        >Nomor HP tidak valid</mat-error
+      >
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <div class="mat-dialog-actions" mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="submitForm()">
+      <mat-icon>save_rounded</mat-icon> Simpan
+    </button>
+    <button mat-raised-button color="accent" mat-dialog-close>
+      <mat-icon>close</mat-icon> Batal
+    </button>
+  </div>
+</form>
