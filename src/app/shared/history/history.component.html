@@ -1,1 +1,49 @@
-<p>history works!</p>
+<div class="mat-elevation-z1">
+  <!-- table data source -->
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let i; let idx = index">{{ idx + 1 }}</td>
+    </ng-container>
+
+    <!-- nama Column -->
+    <ng-container matColumnDef="nama">
+      <th mat-header-cell *matHeaderCellDef>Nama Dosen</th>
+      <td mat-cell *matCellDef="let i">{{ i.nama }}</td>
+    </ng-container>
+
+    <!-- waktu Column -->
+    <ng-container matColumnDef="waktu">
+      <th mat-header-cell *matHeaderCellDef>Waktu</th>
+      <td mat-cell *matCellDef="let i">{{ i.waktu }}</td>
+    </ng-container>
+
+    <!-- tipe Column -->
+    <ng-container matColumnDef="tipe">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let i">
+        {{ i.tipe == "in" ? "Masuk" : "Keluar" }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Row shown when there is no matching data that will be provided to the wrapper table. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td
+        class="mat-cell"
+        [attr.colspan]="displayedColumns.length"
+        class="no-data"
+      >
+        Belum ada data
+      </td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

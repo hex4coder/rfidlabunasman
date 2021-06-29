@@ -22,7 +22,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'dosen',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   },
 
