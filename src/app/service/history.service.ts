@@ -28,6 +28,7 @@ export class HistoryService implements OnDestroy {
     // listen data changes
     this.fireDatabase.database
       .ref(this.currentPath)
+      .orderByValue() // tes order by waktu
       .on('value', (dataSnapshot) => {
         // log data
         const jsonData: Object | null = dataSnapshot.toJSON();

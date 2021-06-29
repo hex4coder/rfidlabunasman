@@ -14,6 +14,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
@@ -49,6 +51,7 @@ import { DosenFormComponent } from './dosen-form/dosen-form.component';
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    MatCardModule,
   ],
   exports: [
     LoginComponent,
@@ -61,6 +64,7 @@ import { DosenFormComponent } from './dosen-form/dosen-form.component';
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    MatCardModule,
 
     AdminComponent,
     HistoryComponent,

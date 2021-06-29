@@ -3,10 +3,24 @@ import { LoginComponent } from './shared/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import {
+  AngularFireAuthGuard,
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+} from '@angular/fire/auth-guard';
+
+// auth guard firebase
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToDashboard = () => redirectLoggedInTo(['admin']);
+
 const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: redirectUnauthorizedToLogin,
+    },
     loadChildren: () =>
       import('./shared/shared.module').then((m) => m.SharedModule),
   },
@@ -14,6 +28,9 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    data: {
+      authGuardPipe: redirectLoggedInToDashboard,
+    },
   },
 
   {
