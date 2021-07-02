@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { AdminComponent } from './shared/admin/admin.component';
 import { LoginComponent } from './shared/login/login.component';
 import { NgModule } from '@angular/core';
@@ -41,8 +42,7 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: '',
-    pathMatch: 'full',
+    component: NotFoundComponent,
   },
 ];
 

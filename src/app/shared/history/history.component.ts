@@ -14,6 +14,7 @@ export class HistoryComponent implements OnDestroy {
   // var's
   displayedColumns: string[] = ['position', 'nama', 'waktu', 'tipe'];
   dataSource!: MatTableDataSource<HistoryModel>;
+  dataExists: boolean = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   // subs
@@ -26,8 +27,10 @@ export class HistoryComponent implements OnDestroy {
     this.sub = this.service.$listData.subscribe((list) => {
       if (list) {
         this.dataSource = new MatTableDataSource<HistoryModel>(list);
+        this.dataExists = list.length > 0;
       } else {
         this.dataSource = new MatTableDataSource<HistoryModel>([]);
+        this.dataExists = false;
       }
       this.dataSource.paginator = this.paginator;
     });

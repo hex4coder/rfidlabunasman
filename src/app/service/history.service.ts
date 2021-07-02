@@ -1,3 +1,4 @@
+import { SwalService } from './swal.service';
 import { HistoryModel } from './../model/history-model';
 import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -24,7 +25,7 @@ export class HistoryService implements OnDestroy {
    * @param fireDatabase
    * @param dialog
    */
-  constructor(private fireDatabase: AngularFireDatabase) {
+  constructor(private fireDatabase: AngularFireDatabase, private dialog: SwalService) {
     // listen data changes
     this.fireDatabase.database
       .ref(this.currentPath)
@@ -47,5 +48,25 @@ export class HistoryService implements OnDestroy {
           this.$listData.next([]);
         }
       });
+  }
+
+
+
+  /**
+   * fungsi untuk menghapus semua data history
+   */
+  async deleteAllHistory() : Promise<void> {
+    const y = await this.dialog.question('Clear', 'Anda yakin ingin menghapus semua history LAB ?')
+    if(y.isConfirmed) {
+      // lakukan penghapusan data
+      this.dialog.loading('Melakukan penghapusan data history ...')
+      try {
+        await this.fireDatabase.database.ref(this.currentPath).remove()
+        this.dialog.toastsuccess('Penghapusan history telah selesai')
+      } catch (error) {
+        console.log(error)
+        await this.dialog.error('Terjadi kesalahan saat menghapus data history : ' + error)
+      }
+    }
   }
 }

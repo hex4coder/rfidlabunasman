@@ -23,6 +23,7 @@ import { HistoryComponent } from './history/history.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DosenComponent } from './dosen/dosen.component';
 import { DosenFormComponent } from './dosen-form/dosen-form.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DosenFormComponent } from './dosen-form/dosen-form.component';
     DashboardComponent,
     DosenComponent,
     DosenFormComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -71,6 +73,7 @@ import { DosenFormComponent } from './dosen-form/dosen-form.component';
     DashboardComponent,
     DosenComponent,
     DosenFormComponent,
+    NotFoundComponent,
   ],
 })
 export class SharedModule {}

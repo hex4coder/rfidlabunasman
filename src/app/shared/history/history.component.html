@@ -1,4 +1,14 @@
 <div class="mat-elevation-z1">
+  <!-- button -->
+  <button
+  *ngIf="dataExists"
+    mat-raised-button
+    color="warn"
+    class="button-add"
+    (click)="service.deleteAllHistory()"
+  >
+    <mat-icon>delete_forever</mat-icon> Bersihkan History
+  </button>
   <!-- table data source -->
   <table mat-table [dataSource]="dataSource">
     <!-- Position Column -->
@@ -23,7 +33,7 @@
     <ng-container matColumnDef="tipe">
       <th mat-header-cell *matHeaderCellDef>Status</th>
       <td mat-cell *matCellDef="let i">
-        {{ i.tipe == "in" ? "Masuk" : "Keluar" }}
+        {{ i.tipe == "masuk" ? "Masuk" : "Keluar" }}
       </td>
     </ng-container>
 

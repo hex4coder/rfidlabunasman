@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './not-found/not-found.component';
 import { HistoryComponent } from './history/history.component';
 import { DosenComponent } from './dosen/dosen.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -28,8 +29,7 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: '',
-    pathMatch: 'full',
+    component: NotFoundComponent,
   },
 ];
 
